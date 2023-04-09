@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: text/html');
 header('Content-Disposition: inline; filename="assertion.php"');
+
 ?>
 <html>
     <head>
