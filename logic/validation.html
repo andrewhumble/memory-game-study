@@ -1,0 +1,161 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../logic/tlx/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 768px;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .scale {
+            width: 100%;
+            margin-bottom: 5px;
+            border: 2px solid #333;
+            background-color: #fff;
+            border-collapse: collapse;
+        }
+
+        .scale td {
+            height: 18px;
+        }
+
+        .scale .tick {
+            border-right: 2px solid #333;
+        }
+
+        .highlighted {
+            background-color: #ccc;
+        }
+
+        .selected {
+            background-color: #f00;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        /* Clear floats after image containers */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+    <h1>Questionnaire</h1>
+    <script src="tlx/js/jquery-2.1.1.min.js"></script>
+    <script language="JavaScript">
+
+
+        $(document).ready(function () {
+
+            var data = {};
+
+            $("#submit").click(function () {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const id = urlParams.get('id');
+                const group = urlParams.get('group');
+
+                data["id"] = id;
+                data["group"] = group;
+
+                data["q1-a1"] = document.getElementById("q1-a1").checked;
+                data["q1-a2"] = document.getElementById("q1-a2").checked;
+                data["q1-a3"] = document.getElementById("q1-a3").checked;
+
+                data["q2-a1"] = document.getElementById("q2-a1").checked;
+                data["q2-a2"] = document.getElementById("q2-a2").checked;
+                data["q2-a3"] = document.getElementById("q2-a3").checked;
+
+                data["q3-a1"] = document.getElementById("q3-a1").checked;
+                data["q3-a2"] = document.getElementById("q3-a2").checked;
+                data["q3-a3"] = document.getElementById("q3-a3").checked;
+
+                if (Object.keys(data).length === 11) {
+                    $.post("php/log-validation.php", data, function (result) {
+                        window.location.href = "php/tasks.php?id=" + id + "&group=" + group;
+                    });
+                    data = {};
+                }
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <p style="margin-left: 10px;">Please answer the following questions first:</p>
+
+        <form>
+            <fieldset>
+                <legend style="margin-left: 10px;">What are the three groups present in this study with regard to the
+                    adaptation of the task difficulty?
+                </legend>
+                <input id="q1-a1" type="radio" name="action" id="q1-a1" value="q1-a1" style="margin-left: 40px;" />
+                No support through adaptation, performance, and AI-based analysis of the camera
+                image<br />
+                <input id="q1-a2" type="radio" name="action" id="q1-a2" value="q1-a2" style="margin-left: 40px;" />
+                Adaptation by weather conditions, adaptation by the current
+                temperature, and analysis of the camera image<br />
+                <input id="q1-a3" type="radio" name="action" id="q1-a3" value="q1-a3" style="margin-left: 40px;" />
+                Adaptation by analysis of surroundings, adaptation by the
+                current location, and analysis of the camera image<br />
+            </fieldset>
+        </form>
+
+        <form>
+            <fieldset>
+                <legend style="margin-left: 10px;">What is analyzed by the AI during the study?</legend>
+                <input id="q2-a1" type="radio" name="action" id="q2-a1" value="q2-a1" style="margin-left: 40px;" />
+                Daylight<br />
+                <input id="q2-a2" type="radio" name="action" id="q2-a2" value="q2-a2" style="margin-left: 40px;" />
+                Pulse and emotional states through facial features using the camera image<br />
+                <input id="q2-a3" type="radio" name="action" id="q2-a3" value="q2-a3" style="margin-left: 40px;" />
+                Surrounding objects in the image<br />
+            </fieldset>
+        </form>
+
+        <form>
+            <fieldset>
+                <legend style="margin-left: 10px;">What are the measured metrics used for?</legend>
+                <input id="q3-a1" type="radio" name="action" id="q3-a1" value="q3-a1" style="margin-left: 40px;" />
+                Evaluation of the Internet connection<br />
+                <input id="q3-a2" type="radio" name="action" id="q3-a2" value="q3-a2" style="margin-left: 40px;" />
+                Adaptation of the task difficulty<br />
+                <input id="q3-a3" type="radio" name="action" id="q3-a3" value="q3-a3" style="margin-left: 40px;" />
+                Selection of correct browser settings<br />
+            </fieldset>
+        </form>
+        <p style="margin-left: 10px;">
+            Press the button to send the results of the questionnaire. <br><b>The experiment starts after pressing the
+                button. Good luck!</b>
+        </p>
+        <button type="submit" id="submit" class="btn btn-default pull-left">Send answers and start the
+            experiment</button>
+    </div>
+
+</body>
+
+
+</html>

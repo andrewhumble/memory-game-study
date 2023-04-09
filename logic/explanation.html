@@ -1,0 +1,147 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="tlx/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 768px;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .scale {
+            width: 100%;
+            margin-bottom: 5px;
+            border: 2px solid #333;
+            background-color: #fff;
+            border-collapse: collapse;
+        }
+
+        .scale td {
+            height: 18px;
+        }
+
+        .scale .tick {
+            border-right: 2px solid #333;
+        }
+
+        .highlighted {
+            background-color: #ccc;
+        }
+
+        .selected {
+            background-color: #f00;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        /* Clear floats after image containers */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+    <h1>Task Performance, Emotions, and Heart Rate as Indicators for Perceived Stress</h1>
+</head>
+
+<body class="container pull-left">
+
+    In this experiment, you will be asked to solve word puzzles with different levels of difficulty. Before that you
+    will
+    be
+    placed in one of three groups: <i>no support through adaptation</i>, <i>task performance</i>, or <i>AI-based
+        analysis of the
+        camera
+        image</i>.
+    <h2>What can be Inferred from the Task Performance?</h2>
+    <p>The task performance provides details about your individual processing efficiency. If you
+        solve
+        tasks in a sequence correctly or incorrectly, this is an indicator of good or bad performance. The task
+        difficulty will
+        be adjusted accordingly to match the current performance level. For example, tasks will become easier if many
+        tasks were
+        previously answered incorrectly and tasks will become harder if many tasks were previously answered correctly.
+    </p>
+
+    <h2>Which Details are Analyzed with a Camera Image?</h2>
+    <p>An artificial intelligence (AI) captures the face and provides details about stress levels and
+        emotional states. The stress level
+        is
+        calculated by analyzing the face to detect changes in blood circulation and pulse [1]. Recent scientific
+        research has
+        shown that pulse changes are related to the current level of perceived stress [2]. Emotional states can also be
+        derived
+        from facial features (smiling, frowning), which are indicative of the current affective state [3]. Using these
+        two
+        indicators, task difficulty can be inferred and adjusted to avoid frustration due to tasks that were too
+        difficult or
+        too easy using an AI. The following example illustrates how the AI takes
+        into
+        account stress and emotions to adjust the task difficulty. By extracting the pulse and the felt emotions, a
+        low
+        stress level is implied. Therefore, the tasks become more difficult:</p>
+    <div class="row">
+        <div class="column">
+            <div style="text-align: justify;"><b>The analysis of the camera image by the AI shows an average pulse and
+                    thus a low stress-level. The tasks become somewhat
+                    more difficult.</b></div><br>
+            <b>Sample image removed for blind review</b>
+            <br>
+        </div>
+    </div>
+    <br>
+    The following example shows a user who is a bit annoyed and has a slightly elevated heart rate. From now on, the
+    system
+    makes the tasks easier.
+
+    <div class="row">
+        <div class="column">
+            <div style="text-align: justify;"><b>The analysis of the camera image shows an increased pulse and thus an
+                    increased stress-level. The tasks become somewhat
+                    easier.</b></div><br>
+            <b>Sample image removed for blind review</b>
+            <br>
+        </div>
+    </div>
+    </div>
+    <br>
+    <p>Please click on "To task description" when you have read the information.</p>
+    </p>
+    <form action="task-description.html">
+        <input type="submit" value="To task description" class="btn btn-default pull-left" />
+    </form>
+    <br><br>
+    <h4>References</h4>
+    <p>[1]: Lewandowska, M., Rumiński, J., Kocejko, T., & Nowak, J. (2011, September). Measuring pulse rate with a
+        webcam - a non-contact method for evaluating cardiac activity. In 2011 federated conference on computer
+        science and
+        information
+        systems (FedCSIS) (pp. 405-410). IEEE.</p>
+    <p>[2]: Matthews, K. A., Woodall, K. L., & Allen, M. T. (1993). Cardiovascular reactivity to stress predicts
+        future blood
+        pressure status. Hypertension, 22(4), 479-485.</p>
+    <p>[3]: Ekman, P., & Friesen, W. V. (2003). Unmasking the face: A guide to recognizing emotions from facial
+        clues.</p>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="tlx/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 768px;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .scale {
+            width: 100%;
+            margin-bottom: 5px;
+            border: 2px solid #333;
+            background-color: #fff;
+            border-collapse: collapse;
+        }
+
+        .scale td {
+            height: 18px;
+        }
+
+        .scale .tick {
+            border-right: 2px solid #333;
+        }
+
+        .highlighted {
+            background-color: #ccc;
+        }
+
+        .selected {
+            background-color: #f00;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        /* Clear floats after image containers */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+    <h1>Task Description</h1>
+</head>
+
+<body class="container pull-left">
+
+    <p>
+        During the study you will be asked to solve word puzzles. You will be presented with a random sequence of
+        letters in a
+        blue field (see picture below). Your task is to find the correct word as fast as possible. To do this, enter the
+        correct
+        word by selecting the letters in the correct order. You have 45 seconds per word puzzle. After the time has
+        elapsed, your current entry is accepted and the next word puzzle begins.<br><br>
+
+    </p>
+    <div style="text-align: justify;"><b>Example: The correct solution is LIFE. Select L, I, F, and E in this order.</b>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="../img/task-description-2-english.png" style="width:300%; height:auto" />
+        </div>
+    </div>
+
+
+    <p>Please click on "To consent form" to get to the consent form.</p>
+    </p>
+    <form action="consent.html">
+        <input type="submit" value="To consent form" class="btn btn-default pull-left" />
+    </form>
+</body>
+
+</html>

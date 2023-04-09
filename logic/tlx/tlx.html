@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 768px;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .scale {
+            width: 100%;
+            margin-bottom: 5px;
+            border: 2px solid #333;
+            background-color: #fff;
+            border-collapse: collapse;
+        }
+
+        .scale td {
+            height: 18px;
+        }
+
+        .scale .tick {
+            border-right: 2px solid #333;
+        }
+
+        .highlighted {
+            background-color: #ccc;
+        }
+
+        .selected {
+            background-color: #f00;
+        }
+    </style>
+</head>
+
+<body onload="startup()">
+
+    <div class="container">
+
+        <h1>Final Questionnaire (1/2)</h1>
+
+        <h4>Please answer the questions here on a scale from 1 (far left) to 20 (far right). There are
+            no right or wrong answers. Follow your intuition if something is unclear.</h4>
+
+        <!-- TLX: Mental Demand -->
+        <h4>Mental Demand
+            <small>How mentally demanding was the task?</small></h4>
+
+        <table class="scale" data-name="mental-demand">
+            <tr>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+            </tr>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div class="col-xs-5 text-left">Very Low</div>
+            <div class="col-xs-2 text-center">|</div>
+            <div class="col-xs-5 text-right">Very High</div>
+        </div>
+
+        <br>
+
+        <!-- Physical Demand -->
+
+        <h4>Physical Demand
+            <small>How physically demanding was the task?</small></h4>
+
+        <table class="scale" data-name="physical-demand">
+            <tr>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+            </tr>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div class="col-xs-5 text-left">Very Low</div>
+            <div class="col-xs-2 text-center">|</div>
+            <div class="col-xs-5 text-right">Very High</div>
+        </div>
+
+        <br>
+
+        <!-- Temporal Demand -->
+
+        <h4>Temporal Demand
+            <small>How hurried or rushed was the pace of the task?</small></h4>
+
+        <table class="scale" data-name="temporal-demand">
+            <tr>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+            </tr>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div class="col-xs-5 text-left">Very Low</div>
+            <div class="col-xs-2 text-center">|</div>
+            <div class="col-xs-5 text-right">Very High</div>
+        </div>
+
+        <br>
+
+        <!-- Performance -->
+
+        <h4>Performance
+            <small>How successful were you in accomplishing what you were asked to do?
+            </small></h4>
+
+        <table class="scale" data-name="performance">
+            <tr>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+            </tr>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div class="col-xs-5 text-left">Perfect</div>
+            <div class="col-xs-2 text-center">|</div>
+            <div class="col-xs-5 text-right">Failure</div>
+        </div>
+
+        <br>
+
+        <!-- Effort -->
+
+        <h4>Effort
+            <small>How hard did you have to work to accomplish your level of performance?</small></h4>
+
+        <table class="scale" data-name="effort">
+            <tr>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+            </tr>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div class="col-xs-5 text-left">Very Low</div>
+            <div class="col-xs-2 text-center">|</div>
+            <div class="col-xs-5 text-right">Very High</div>
+        </div>
+
+        <br>
+
+        <!-- Frustration -->
+
+        <h4>Frustration
+            <small>How insecure, discouraged, irritated, stressed, and annoyed were you?</small></h4>
+
+        <table class="scale" data-name="frustration">
+            <tr>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+                <td></td>
+                <td class="tick"></td>
+            </tr>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+
+        <div class="row">
+            <div class="col-xs-5 text-left">Very Low</div>
+            <div class="col-xs-2 text-center">|</div>
+            <div class="col-xs-5 text-right">Very High</div>
+        </div>
+
+        <br>
+
+        <button type="submit" id="submit" class="btn btn-default pull-right">To the next page</button>
+        </form>
+        <br>
+        <br>
+    </div>
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var data = {};
+
+            $("td").hover(
+                function () {
+                    var t = parseInt($(this).index()) + 1;
+                    $(this).parents("table").find("td:nth-child(" + t + ")").addClass("highlighted");
+                },
+                function () {
+                    var t = parseInt($(this).index()) + 1;
+                    $(this).parents("table").find("td:nth-child(" + t + ")").removeClass("highlighted");
+                }
+            ).click(
+                function () {
+                    var t = parseInt($(this).index()) + 1;
+                    $(this).parents("table").find("td").removeClass("selected");
+                    $(this).parents("table").find("td:nth-child(" + t + ")").addClass("selected");
+                    console.log($(this).parents("table").data("name") + ": " + t);
+                    data[$(this).parents("table").data("name")] = t;
+                }
+            );
+
+            $("#submit").click(function () {
+
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const id = urlParams.get('id');
+                const group = urlParams.get('group');
+                data["id"] = id;
+                data["group"] = group;
+                if (Object.keys(data).length == 8) {
+                    $("td").removeClass("selected");
+                    $.post("save-tlx.php", data, function (result) {
+                        window.location.href = "questionnaire.html?id=" + id + "&group=" + group;
+                    });
+                    data = {};
+                } else {
+                    alert("You have not filled in all fields. Please check your input.");
+                }
+                return false;
+            });
+
+        });
+
+        function startup() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const group = urlParams.get('group');
+        }
+    </script>
+
+</body>
+
+</html>

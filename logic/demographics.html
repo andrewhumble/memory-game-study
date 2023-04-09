@@ -1,0 +1,220 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="tlx/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 768px;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .scale {
+            width: 100%;
+            margin-bottom: 5px;
+            border: 2px solid #333;
+            background-color: #fff;
+            border-collapse: collapse;
+        }
+
+        .scale td {
+            height: 18px;
+        }
+
+        .scale .tick {
+            border-right: 2px solid #333;
+        }
+
+        .highlighted {
+            background-color: #ccc;
+        }
+
+        .selected {
+            background-color: #f00;
+        }
+    </style>
+
+    <script src="tlx/js/jquery-2.1.1.min.js"></script>
+    <script language="JavaScript">
+
+
+        $(document).ready(function () {
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const group = urlParams.get('group');
+
+            if (group === "nothing") {
+                document.getElementById("heading-expectancy").innerHTML = "You are in the group without word puzzle adaption. Word puzzles of random difficulty are presented to you. Do you think you will do better compared to the other groups?";
+            }
+
+            if (group === "performance") {
+                document.getElementById("heading-expectancy").innerHTML = "You are in the group where the word puzzles are adjusted by your task performance. Do you think you will do better compared to the other groups?";
+            }
+
+            if (group === "camera") {
+                document.getElementById("heading-expectancy").innerHTML = "You are in the group where the word puzzles are adjusted by an AI. Do you think you will do better compared to the other groups?";
+            }
+
+            var data = {};
+
+            $("td").hover(
+                function () {
+                    var t = parseInt($(this).index()) + 1;
+                    $(this).parents("table").find("td:nth-child(" + t + ")").addClass("highlighted");
+                },
+                function () {
+                    var t = parseInt($(this).index()) + 1;
+                    $(this).parents("table").find("td:nth-child(" + t + ")").removeClass("highlighted");
+                }
+            ).click(
+                function () {
+                    var t = parseInt($(this).index()) + 1;
+                    $(this).parents("table").find("td").removeClass("selected");
+                    $(this).parents("table").find("td:nth-child(" + t + ")").addClass("selected");
+                    console.log($(this).parents("table").data("name") + ": " + t);
+                    data[$(this).parents("table").data("name")] = t;
+                }
+            );
+
+            $("#submit").click(function () {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const id = urlParams.get('id');
+                const group = urlParams.get('group');
+                var age = document.getElementById("age").value;
+                var occupation = document.getElementById("occupation").value;
+                var useragent = navigator.userAgent;
+
+                // demographics
+                data["female"] = document.getElementById("female").checked;
+                data["male"] = document.getElementById("male").checked;
+                data["other"] = document.getElementById("other").checked;
+                data["none"] = document.getElementById("none").checked;
+
+                if (id) {
+                    data["id"] = id;
+                }
+                if (age) {
+                    data["age"] = age;
+                }
+                if (occupation) {
+                    data["occupation"] = occupation;
+                }
+                if (useragent) {
+                    data["useragent"] = useragent;
+                }
+                data["group"] = group;
+                if (Object.keys(data).length === 11) {
+                    $.post("php/log-demographics.php", data, function (result) {
+                        window.location.href = "validation.html?id=" + id + "&group=" + group;
+                    });
+                    data = {};
+                }
+                return false;
+            });
+        });
+    </script>
+
+    <h1>Demographic Data</h1>
+</head>
+
+<body class="container pull-left">
+    <p>
+        Before you start the experiment, we ask you to provide some demographic data. All data will be stored
+        anonymously.
+    </p>
+
+    <form>
+        <p>Please enter your age:</p>
+        <input id="age" type="text" required><br><br>
+        <p>Please indicate your occupation:</p>
+        <input id="occupation" type="text" required><br><br>
+        <form>
+            <fieldset>
+                <legend style="margin-left: 10px;">With what gender do you identify yourself?
+                </legend>
+                <input id="female" type="radio" name="action" id="female" value="female" style="margin-left: 40px;" />
+                Female<br />
+                <input id="male" type="radio" name="action" id="male" value="male" style="margin-left: 40px;" />
+                Male<br />
+                <input id="other" type="radio" name="action" id="other" value="other" style="margin-left: 40px;" />
+                Diverse<br />
+                <input id="none" type="radio" name="action" id="none" value="none" style="margin-left: 40px;" />
+                Prefer not to say<br />
+            </fieldset>
+        </form>
+        <h4>How would you rate your technical competence? For example, a "Very limited competence" corresponds to not
+            handling technical artifacts on a daily basis. A "Very high competence" means that you have a deep
+            understanding of technology and how to handle technical artifacts on a daily basis
+        </h4>
+        <table class="scale" data-name="competence">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-xs-5 text-left">1: Very limited competence</div>
+            <div class="col-xs-2 text-center"></div>
+            <div class="col-xs-5 text-right">7: Very high competence</div>
+        </div>
+
+        <h4 id="heading-expectancy">
+        </h4>
+        <table class="scale" data-name="expectancy">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <tr>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+                <td class="tick"></td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-xs-5 text-left">1: I will perform much worse</div>
+            <div class="col-xs-2 text-center"></div>
+            <div class="col-xs-5 text-right">7: I will perform much better</div>
+        </div>
+        <br>
+        <button type="submit" id="submit" class="btn btn-default pull-left">To the next questionnaire</button>
+    </form>
+</body>
+
+</html>

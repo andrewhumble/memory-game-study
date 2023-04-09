@@ -1,0 +1,129 @@
+<html>
+<header>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="tlx/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 768px;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-center {
+            text-align: center;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .scale {
+            width: 100%;
+            margin-bottom: 5px;
+            border: 2px solid #333;
+            background-color: #fff;
+            border-collapse: collapse;
+        }
+
+        .scale td {
+            height: 18px;
+        }
+
+        .scale .tick {
+            border-right: 2px solid #333;
+        }
+
+        .highlighted {
+            background-color: #ccc;
+        }
+
+        .selected {
+            background-color: #f00;
+        }
+    </style>
+
+    <script src="tlx/js/jquery-2.1.1.min.js"></script>
+    <script language="JavaScript">
+
+        $(document).ready(function () {
+            $("#submit").click(function () {
+
+                var data = {};
+
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const id = urlParams.get('id');
+                const group = urlParams.get('group');
+
+                if (id) {
+                    data["id"] = id;
+                }
+                if (Object.keys(data).length === 1) {
+                    $.post("php/discard-data.php", data, function (result) {
+                        window.location.href = "conclusion.html";
+                    });
+                    data = {};
+                }
+                return false;
+            });
+        });
+
+    </script>
+
+    <h1>Debriefing</h1>
+</header>
+
+<body class="container pull-left">
+    <p>
+        Dear study participant,<br><br>
+        Thank you for your study participation.
+        During the study, some word puzzles were solved and the level of difficulty was
+        determined using the webcam or an adaptive algorithm. You were informed that the purpose of the study was to
+        evaluate
+        an
+        already calibrated system. This statement was not true. The difficulty remained consistent.
+        Furthermore, the video footage did not affect the difficulty of the tasks.
+        <br><br>The purpose of the deception is to investigate the extent to which your subjective judgment differs
+        between
+        the
+        different conditions. The goal is to prove a "novelty effect", which occurs when you use a novel
+        user interface. This novelty effect often leads to a new experience when interacting with user interfaces. User
+        interface evaluations of novel interfaces are perceived better by users although they do not differ from other
+        user interfaces.
+        Consequently,
+        performance metrics and an AI-based analysis of the camera images to adjust the task difficulty were not
+        performed. The difficulty of the
+        tasks were ultimately not adjusted.
+        <br><br>
+        We apologize for incurring any inconvenience. Since this is the case that you were
+        misinformed,
+        you have the right to withdraw your data from the study. This means that collected questionnaires, demographic
+        data,
+        performance data are immediately destroyed and deleted. If you choose to do this, you will not experience any
+        disadvantages. You will still have the opportunity to take part in the drawing of the vouchers.
+        <br>
+        <b>Please do not discuss the study with anyone to avoid falsifying the results.</b>
+        <br><br>
+        The experiment ends after pressing one of the buttons below. Thank you again for participating!
+    </p>
+
+    <form action="conclusion.html">
+        <input type="submit" value="I agree that my data may still be used for the evaluation of the experiment."
+            class="btn btn-default pull-left" />
+    </form>
+    <br><br>
+    <form>
+        <input type="submit" id="submit"
+            value="I do NOT agree to the further processing of my data. Please withdraw the data from the study and destroy them immediately."
+            class="btn btn-default pull-left" />
+    </form>
+
+</body>
+
+</html>

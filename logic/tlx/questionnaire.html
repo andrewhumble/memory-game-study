@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.container {
+			max-width: 768px;
+		}
+
+		.text-left {
+			text-align: left;
+		}
+
+		.text-center {
+			text-align: center;
+			font-weight: bold;
+			color: #ccc;
+		}
+
+		.text-right {
+			text-align: right;
+		}
+
+		.scale {
+			width: 100%;
+			margin-bottom: 5px;
+			border: 2px solid #333;
+			background-color: #fff;
+			border-collapse: collapse;
+		}
+
+		.scale td {
+			height: 18px;
+		}
+
+		.scale .tick {
+			border-right: 2px solid #333;
+		}
+
+		.highlighted {
+			background-color: #ccc;
+		}
+
+		.selected {
+			background-color: #f00;
+		}
+	</style>
+</head>
+
+<body onload="startup()">
+
+	<div class="container">
+
+		<h1>Final Questionnaire (2/2)</h1>
+
+		<h4>Please rate, on a scale of 1 to 7, how accurate the following statements are. The left side of the scale
+			means "Do not
+			agree at all" and the right means "Absolutely agree."</h4>
+		<br>
+		<form>
+			<div id="adaptiveQuestions">
+
+				<!-- Custom Questions -->
+				<h4>The word puzzles adapted to my performance</h4>
+				<table class="scale" data-name="c1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>The word puzzles were easy to solve</h4>
+				<table class="scale" data-name="c2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+
+				<h4>The word puzzles have adapted well to the task difficulty</h4>
+				<table class="scale" data-name="c3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+			</div>
+
+			<h4>I am using the same or a similar assistive system on a regular basis</h4>
+			<table class="scale" data-name="c4">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4 id="heading-expectancy"></h4>
+			<table class="scale" data-name="c5">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The word puzzles were generated according to my performance</h4>
+			<table class="scale" data-name="c6">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The word puzzles were generated according to my stress-level</h4>
+			<table class="scale" data-name="c7">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>New word puzzles in the task appeared based on my stress-level</h4>
+			<table class="scale" data-name="c8">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>New word puzzles in the task appeared based on my performance</h4>
+			<table class="scale" data-name="c9">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The word puzzles were matched to my performance</h4>
+			<table class="scale" data-name="c10">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The word puzzles were matched to my stress-level</h4>
+			<table class="scale" data-name="c11">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The behavior of the word puzzles changed when I was doing too well or too badly</h4>
+			<table class="scale" data-name="c12">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The behavior of the word puzzles changed when I was feeling bored or stressed</h4>
+			<table class="scale" data-name="c13">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The word puzzles were not adapted sensibly to my stress-level</h4>
+			<table class="scale" data-name="c14">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+
+			<h4>The word puzzles were not adapted sensibly to my performance</h4>
+			<table class="scale" data-name="c15">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<tr>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+					<td class="tick"></td>
+				</tr>
+			</table>
+			<div class="row">
+				<div class="col-xs-5 text-left">Do not agree at all</div>
+				<div class="col-xs-2 text-center"></div>
+				<div class="col-xs-5 text-right">Absolutely agree</div>
+			</div>
+			</table>
+			<br><br><br><br><br>
+
+			<div id="hiddenQuestions">
+				<!-- UTAUT2 -->
+
+				<h4>I find the assistant useful in my daily life</h4>
+				<table class="scale" data-name="pe1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant increases my chances of achieving things that are important to me</h4>
+				<table class="scale" data-name="pe2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+
+				<h4>Using the assistant helps me accomplish things more quickly</h4>
+				<table class="scale" data-name="pe3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant increases my productivity</h4>
+				<table class="scale" data-name="pe4">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+
+				<h4>Learning how to use the assistant was easy for me</h4>
+				<table class="scale" data-name="ee1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>My interaction with the assistant is clear and understandable</h4>
+				<table class="scale" data-name="ee2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>I find the assistant easy to use</h4>
+				<table class="scale" data-name="ee3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>It is easy for me to become skillful at using the assistant</h4>
+				<table class="scale" data-name="ee4">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant is fun</h4>
+				<table class="scale" data-name="hm1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant is enjoyable</h4>
+				<table class="scale" data-name="hm2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant is very entertaining</h4>
+				<table class="scale" data-name="hm3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<br><br><br><br><br>
+				<!-- Paper "Effect of Perceived Novelty on Adaption of IT Innovations" -->
+				<h4>If I heard about a new information technology, I would look for ways to experiment with it
+				</h4>
+				<table class="scale" data-name="pi1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Among my peers, I am usually the first to try out new information technologies</h4>
+				<table class="scale" data-name="pi2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>I like to experiment with new information technologies</h4>
+				<table class="scale" data-name="pi3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>I found using the assistant to be a novel experience</h4>
+				<table class="scale" data-name="nv1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant is new and refreshing</h4>
+				<table class="scale" data-name="nv2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>The assistant represents a neat and novel way of adapting the task difficulty</h4>
+				<table class="scale" data-name="nv3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Overall, it is a good idea to use the assistant</h4>
+				<table class="scale" data-name="att1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Overall, it is wise to use the assistant</h4>
+				<table class="scale" data-name="att2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Overall, it is effective to use the assistant</h4>
+				<table class="scale" data-name="att3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>On the whole, considering all sorts of factors combined, it is rewarding to sign up for
+					and use the assistant</h4>
+				<table class="scale" data-name="ovrw1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant will be rewarding</h4>
+				<table class="scale" data-name="ovrw2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>The assistant is beneficial to use</h4>
+				<table class="scale" data-name="ovrw3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>I intend to use the assistant to adapt the task difficulty</h4>
+				<table class="scale" data-name="bin1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>My intention is to use the assistant instead of other non-adaptive systems</h4>
+				<table class="scale" data-name="bin2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>It is my intention to use the assistant at home or work</h4>
+				<table class="scale" data-name="bin3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>On the whole, considering all sorts of factors combined, it is risky to sign up for and use the
+					assistant</h4>
+				<table class="scale" data-name="ovr1">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant would be risky</h4>
+				<table class="scale" data-name="ovr2">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+
+				<h4>Using the assistant would add great uncertainty to my interaction</h4>
+				<table class="scale" data-name="ovr3">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<tr>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+						<td class="tick"></td>
+					</tr>
+				</table>
+				<div class="row">
+					<div class="col-xs-5 text-left">Do not agree at all</div>
+					<div class="col-xs-2 text-center"></div>
+					<div class="col-xs-5 text-right">Absolutely agree</div>
+				</div>
+				</table>
+			</div>
+			<br>
+
+			<button type="submit" id="submit" class="btn btn-default pull-right">Send results</button>
+		</form>
+		<br>
+		<br>
+	</div>
+
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script>
+
+		$(document).ready(function () {
+
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const group = urlParams.get('group');
+
+			if (group === "nothing") {
+				document.getElementById("hiddenQuestions").style.display = "none";
+				document.getElementById("heading-expectancy").innerHTML = "You were in the group without adjusting the difficulty of the word puzzles. I think I did better compared to the other groups";
+			}
+
+			if (group === "performance") {
+				document.getElementById("heading-expectancy").innerHTML = "You were in the group in which the word puzzles were adjusted by your task performance. I think I did better compared to the other groups";
+			}
+
+			if (group === "camera") {
+				document.getElementById("heading-expectancy").innerHTML = "You were in the group where the word puzzles were adapted by an AI. I think I did better compared to the other groups";
+			}
+
+			var data = {};
+
+			$("td").hover(
+				function () {
+					var t = parseInt($(this).index()) + 1;
+					$(this).parents("table").find("td:nth-child(" + t + ")").addClass("highlighted");
+				},
+				function () {
+					var t = parseInt($(this).index()) + 1;
+					$(this).parents("table").find("td:nth-child(" + t + ")").removeClass("highlighted");
+				}
+			).click(
+				function () {
+					var t = parseInt($(this).index()) + 1;
+					$(this).parents("table").find("td").removeClass("selected");
+					$(this).parents("table").find("td:nth-child(" + t + ")").addClass("selected");
+					console.log($(this).parents("table").data("name") + ": " + t);
+					data[$(this).parents("table").data("name")] = t;
+				}
+			);
+
+			$("#submit").click(function () {
+
+				const queryString = window.location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const id = urlParams.get('id');
+				const group = urlParams.get('group');
+				data["id"] = id;
+				data["group"] = group;
+
+				console.log(group);
+
+				var numObjectCheck = 46;
+				if (group === "nothing") {
+					numObjectCheck = 17;
+				}
+				if (Object.keys(data).length == numObjectCheck) {
+					$("td").removeClass("selected");
+					$.post("save-questionnaire.php", data, function (result) {
+						window.location.href = "../debriefing.html?id=" + id + "&group=" + group;
+					});
+					data = {};
+				} else {
+					alert("You have not filled in all fields. Please check your input.");
+				}
+				return false;
+			});
+
+		});
+
+		function startup() {
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const group = urlParams.get('group');
+		}
+	</script>
+
+</body>
+
+</html>
