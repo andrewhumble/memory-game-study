@@ -73,8 +73,8 @@ header('Content-Disposition: inline; filename="assertion.php"');
 
             function selectGroup() {
                 var group = "";
-                if (navigator.getUserMedia) {
-                    navigator.getUserMedia({video:false, audio:false}, success, error);
+                if (true) {
+                    success();
                 } else {
                     error();
                 }
